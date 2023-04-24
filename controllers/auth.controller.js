@@ -38,6 +38,7 @@ const register = async (req, res = response)=>{
         ok: true,
         uid: dbUser._id,
         name, 
+        email: dbUser.email,
         token
        })
 
@@ -84,6 +85,7 @@ const login = async (req, res = response)=>{
         ok:true,
         uid: dbUser._id,
         name: dbUser.name,
+        email: dbUser.email,
         token,
       })
         

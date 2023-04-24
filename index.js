@@ -2,6 +2,7 @@
 const express = require('express')
 const cors = require('cors');
 const { dbConnection } = require('./db/config');
+const { patch } = require('./routes/auth.route');
 require('dotenv').config();
 
 // Crear el servidor/aplicacion de express
@@ -24,6 +25,13 @@ app.use( express.json() )
 
 //rutas
 app.use('/api/auth', require('./routes/auth.route'))
+
+// Manejar demás rutas
+app.get('*', (req, res)=>{
+    res.sendFile(patch.resolve(__dirname, 'public/index.html'))
+} )
+
+
 
 const PORT = process.env.PORT || 4000
 
